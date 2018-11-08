@@ -6,11 +6,13 @@ export DEBIAN_FRONTEND=noninteractive
 
 add-apt-repository ppa:chris-lea/redis-server -y
 
+curl -sL https://deb.nodesource.com/setup_10.x | sudo bash -
+
 apt-get update
 
 # GGTRACKER dependencies
 apt-get install -y \
-  ruby redis-server nodejs npm mysql-server git-core ruby-dev \
+  ruby redis-server nodejs mysql-server git-core ruby-dev \
   libcurl4-openssl-dev libmysqlclient-dev build-essential libxml2-dev \
   libxslt-dev
 
@@ -23,5 +25,3 @@ apt-get install -y \
 gem install bundler
 npm install -g juggernaut
 
-# Juggernaut looks for `node` instead of `nodejs`
-sudo ln -s /usr/bin/nodejs /usr/bin/node
